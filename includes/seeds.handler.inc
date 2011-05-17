@@ -63,10 +63,8 @@ class SeedsBeanHandler implements SeedHandler {
     $json = $this->load_data();
     $bean = $this->load_object();
 
-    debug($json);
     if (empty($bean)) {
       $bean = entity_import('bean', $json);
-      debug($bean, 'bean', true);
     }
     else {
       $data = drupal_json_decode($json);
