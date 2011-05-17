@@ -33,7 +33,7 @@ class Bean extends Entity {
    * Set the fields from the defaults and plugin
    */
   protected function setFields() {
-    $values = unserialize($this->data);
+    $values = is_string($this->data) ? unserialize($this->data) : $this->data;
     foreach ($this->plugin->values() as $field => $default) {
       $this->$field = isset($values[$field]) ? $values[$field] : $default;
     }

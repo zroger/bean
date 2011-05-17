@@ -127,6 +127,17 @@ function bean_menu() {
     'file' => 'includes/bean.admin.inc',
   );
 
+  if (module_exists('seeds')) {
+    $items['admin/structure/bean/block/%bean/export'] = array(
+      'title' => 'Export',
+      'page callback' => 'seeds_export_object_page',
+      'page arguments' => array('SeedsBeanHandler', 4),
+      'access arguments' => array('export bean seeds'),
+      'weight' => 10,
+      'type' => MENU_LOCAL_TASK,
+    );
+  }
+
   return $items;
 }
 
